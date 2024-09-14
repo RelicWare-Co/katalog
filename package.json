@@ -4,8 +4,8 @@
   "description": "",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "dev": "bun -bun vite",
+    "build": "bun -bun vite build",
     "preview": "cross-env NODE_ENV=production tsx ./hono-entry.node.ts",
     "lint": "biome lint --write .",
     "format": "biome format --write .",
