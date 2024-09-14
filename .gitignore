@@ -136,3 +136,4 @@ dist
 
 # Sentry Vite Plugin
 .env.sentry-build-plugin
+sqlite.db
