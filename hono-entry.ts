@@ -9,21 +9,21 @@ import { dbMiddleware } from "./server/db-middleware";
 
 const app = new Hono();
 
+app.use(createMiddleware(dbMiddleware)());
+
+app.post("/_telefunc", createHandler(telefuncHandler)());
+
 app.use("/assets/*", 
   serveStatic({
     root: "./dist/client/",
   })
 );
 
-app.use(createMiddleware(dbMiddleware)());
-
-app.post("/_telefunc", createHandler(telefuncHandler)());
-
 /**
  * Vike route
- *
- * @link {@see https://vike.dev}
- **/
+*
+* @link {@see https://vike.dev}
+**/
 app.all("*", createHandler(vikeHandler)());
 
 export default app;
