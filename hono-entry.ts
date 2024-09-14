@@ -3,10 +3,17 @@ import "dotenv/config";
 import { vikeHandler } from "./server/vike-handler";
 import { telefuncHandler } from "./server/telefunc-handler";
 import { Hono } from "hono";
+import { serveStatic } from "hono/bun"
 import { createHandler, createMiddleware } from "@universal-middleware/hono";
 import { dbMiddleware } from "./server/db-middleware";
 
 const app = new Hono();
+
+app.use("/assets/*", 
+  serveStatic({
+    root: "./dist/client/",
+  })
+);
 
 app.use(createMiddleware(dbMiddleware)());
 
