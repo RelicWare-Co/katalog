@@ -1,9 +1,9 @@
-import { dbSqlite } from "./database/drizzle/db";
+import type { initDb } from "./database/drizzle/db";
 
 declare module "telefunc" {
   namespace Telefunc {
     interface Context {
-      db: ReturnType<typeof dbSqlite>;
+      db: ReturnType<typeof initDb>;
     }
   }
 }
@@ -11,9 +11,10 @@ declare module "telefunc" {
 declare global {
   namespace Vike {
     interface PageContext {
-      db: ReturnType<typeof dbSqlite>;
+      db: ReturnType<typeof initDb>;
     }
   }
 }
 
-export {};
+// biome-ignore lint/complexity/noUselessEmptyExport: <explanation>
+export type {};

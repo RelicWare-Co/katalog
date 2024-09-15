@@ -18,6 +18,7 @@ nodeApp.use(
   }),
 );
 
+// biome-ignore lint/style/noNonNullAssertion: file not in use 
 nodeApp.route("/", app!);
 
 const port = envs.PORT ? Number.parseInt(envs.PORT, 10) : 3000;

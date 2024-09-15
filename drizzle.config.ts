@@ -5,11 +5,10 @@ if (!process.env.DATABASE_URL) {
 }
 
 export default defineConfig({
-  dialect: "sqlite",
+  dialect: "postgresql",
   schema: "./database/drizzle/schema/*",
   out: "./database/migrations",
-
   dbCredentials: {
-    url: process.env.DATABASE_URL!,
+    url: <string> process.env.DATABASE_URL,
   },
 });

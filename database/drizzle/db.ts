@@ -1,7 +1,7 @@
-import Database from "bun:sqlite";
-import { drizzle as drizzleSqlite } from "drizzle-orm/bun-sqlite";
+import { drizzle } from "drizzle-orm/postgres-js";
+import postgres from "postgres";
 
-export function dbSqlite() {
-  const sqlite = new Database(process.env.DATABASE_URL);
-  return drizzleSqlite(sqlite);
+export function initDb() {
+  const client = postgres(<string>process.env.DATABASE_URL);
+  return drizzle(client);
 }
