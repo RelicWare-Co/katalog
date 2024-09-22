@@ -3,6 +3,7 @@ import react from "@vitejs/plugin-react";
 import devServer from "@hono/vite-dev-server";
 import { defineConfig } from "vite";
 import vike from "vike/plugin";
+import { fileURLToPath } from "node:url";
 
 export default defineConfig({
   plugins: [
@@ -25,4 +26,12 @@ export default defineConfig({
     react({}),
     telefunc(),
   ],
+  resolve: {
+    alias: [
+      {
+        find: "@",
+        replacement: fileURLToPath(new URL("./", import.meta.url)),
+      },
+    ],
+  },
 });
