@@ -30,7 +30,7 @@ const config = {
       render: () => {
         return <DefaultAppShell/>;
       },
-    },
+    }, 
     DefaultHeader: {
       fields: {},
       render: () => {

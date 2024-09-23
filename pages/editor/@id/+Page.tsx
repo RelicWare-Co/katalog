@@ -7,7 +7,9 @@ import editorConfig from "./editorconfig";
 function Editor() {
   return (
     <Container w={"80dvw"}>
-      <Puck data={data} config={editorConfig} />
+      <Puck data={data} config={editorConfig} onPublish={(data) => {
+        console.log(data)
+      }} />
     </Container>
   );
 }
